@@ -1,3 +1,16 @@
+/* —— CSS Variables for maintainability —— */
+:root {
+  --loreal-red: #c41e3a;
+  --loreal-red-dark: #a01729;
+  --text-primary: #000;
+  --text-secondary: #444;
+  --text-muted: #666;
+  --border-color: #ddd;
+  --border-light: #eee;
+  --bg-chat: #fafafa;
+  --font-primary: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -7,10 +20,12 @@
 
 /* —— body + fonts —— */
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  background: #fff;
   display: flex;
   justify-content: center;
+  line-height: 1.6;
 }
 
 .page-wrapper {
@@ -21,13 +36,27 @@ body {
 /* header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--loreal-red);
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 700;
   margin-bottom: 10px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* chat window */
@@ -37,13 +66,15 @@ body {
 
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 2px solid var(--loreal-red);
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
+  background: var(--bg-chat);
   white-space: pre-line;
+  border-radius: 8px;
+  scroll-behavior: smooth;
 }
 
 /* messages */
@@ -53,11 +84,29 @@ body {
 }
 
 .msg.user {
-  color: #000;
+  color: var(--loreal-red);
+  font-weight: 500;
 }
 
 .msg.ai {
-  color: #666666;
+  color: var(--text-secondary);
+}
+
+/* typing indicator */
+.msg.typing {
+  color: var(--loreal-red);
+  font-style: italic;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* input row */
@@ -70,18 +119,21 @@ body {
 .chat-form input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid var(--border-color);
   font-size: 18px;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: none;
+  border-color: var(--loreal-red);
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: var(--loreal-red);
   color: #fff;
   border: none;
   padding: 12px;
@@ -91,7 +143,8 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  border-radius: 6px;
 }
 
 .chat-form button .material-icons {
@@ -99,11 +152,12 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: var(--loreal-red-dark);
+  transform: translateY(-1px);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--loreal-red);
   outline-offset: 2px;
 }
 
@@ -125,7 +179,9 @@ body {
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  padding-top: 30px;
 }
 
 .site-footer nav {
@@ -134,10 +190,12 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: var(--loreal-red);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--loreal-red-dark);
 }

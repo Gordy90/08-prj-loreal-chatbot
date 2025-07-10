@@ -3,9 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <meta
+      name="description"
+      content="L'Oréal AI Beauty Expert - Get personalized product recommendations for skincare, haircare, makeup, and fragrances"
+    />
+    <title>L'Oréal Smart Product Advisor | AI Beauty Expert</title>
+
+    <!-- Preconnect to external resources for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
       rel="stylesheet"
     />
     <link
@@ -19,6 +28,9 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
+        <div class="logo-container">
+          <img src="img/loreal-logo.png" alt="L'Oréal" class="logo" />
+        </div>
         <h1 class="site-title">Smart Product Advisor</h1>
       </header>
 
@@ -49,7 +61,7 @@
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
           <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
@@ -59,7 +71,7 @@
       </footer>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
+    <!-- Include secrets.js for fallback OpenAI API access -->
     <script src="secrets.js"></script>
     <script src="script.js"></script>
   </body>
